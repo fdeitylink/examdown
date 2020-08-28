@@ -95,7 +95,8 @@ cat <<EOF > examdown-temp.html
 EOF
 
 # Convert html file to pdf
-wkhtmltopdf --no-stop-slow-scripts --javascript-delay "${delay:-3000}" \
+wkhtmltopdf \
+  --enable-local-file-access --no-stop-slow-scripts --javascript-delay "${delay:-3000}" \
   examdown-temp.html "$origindir/${out:-out.pdf}"
 # Remove temporary html file
 rm -f examdown-temp.html
