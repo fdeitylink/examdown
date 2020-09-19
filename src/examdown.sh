@@ -98,6 +98,7 @@ EOF
 wkhtmltopdf \
   --quiet \
   --enable-local-file-access --no-stop-slow-scripts --javascript-delay "${delay:-3000}" \
+  --title "$title" \
   -s letter -B 0.5in -L 0.5in -R 0.5in -T 0.5in \
   examdown-temp.html "$origindir/${out:-out.pdf}"
 # Remove temporary html file
