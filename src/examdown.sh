@@ -66,6 +66,7 @@ origindir="$PWD"
 prefix="${0%/*/*}"
 out="${out:-${bigo_option:+${in%.*}.pdf}}"
 title="${title:-$(basename ${in%.*})}"
+delay=${delay:-3000}
 css="${css:-$prefix/lib/examdown/github-markdown.css}"
 am_svg="$prefix/lib/examdown/MathJax/MathJax.js?config=AM_SVG-full"
 body="$(cmark-gfm -e table -e strikethrough -e autolink --smart -t html $in)"
@@ -96,7 +97,7 @@ EOF
 # Convert html file to pdf
 wkhtmltopdf \
   --quiet \
-  --enable-local-file-access --no-stop-slow-scripts --javascript-delay "${delay:-3000}" \
+  --enable-local-file-access --no-stop-slow-scripts --javascript-delay "$delay" \
   --title "$title" \
   -s letter -B 0.5in -L 0.5in -R 0.5in -T 0.5in \
   examdown-temp.html "$origindir/${out:-out.pdf}"
