@@ -68,8 +68,7 @@ out="${out:-${bigo_option:+${in%.*}.pdf}}"
 title="${title:-$(basename ${in%.*})}"
 css="${css:-$prefix/lib/examdown/github-markdown.css}"
 am_svg="$prefix/lib/examdown/MathJax/MathJax.js?config=AM_SVG-full"
-body="$(sed 's:~~\(.*\)~~:<span class="underline">\1</span>:g' "$in" |
-  cmark -e table -e strikethrough -e autolink --smart -t html)"
+body="$(cmark-gfm -e table -e strikethrough -e autolink --smart -t html $in)"
 
 cat <<EOF > examdown-temp.html
 <!DOCTYPE html>

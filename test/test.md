@@ -16,8 +16,6 @@ $A ^^ B in CC ** AA prod_(i=n)^n i^3$
 
 ~I'm deleted!~
 
-~~I'm underlined~~
-
 This a link processed with autolink: https://en.wikipedia.org/
 
 __Goodbye!__
